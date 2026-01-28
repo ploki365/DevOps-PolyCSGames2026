@@ -1,1 +1,16 @@
+name: CI/CD
+on: [push]
+jobs:
+    Linter:
+        runs-on: ubuntu-latest
+        steps:
+            - run: poetry run black --check .
+            - run: poetry run ruff check . add .
+    
+    UnitTests:
+        runs-on: ubuntu-latest
+        steps:
+            - run: poetry pytest
+
+    
 
