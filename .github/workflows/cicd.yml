@@ -4,13 +4,14 @@ jobs:
     Linter:
         runs-on: ubuntu-latest
         steps:
+            - run: pip install --no-cache-dir -r requirements.txt
             - run: poetry run black --check .
             - run: poetry run ruff check . add .
     
     UnitTests:
         runs-on: ubuntu-latest
         steps:
-            - run: poetry pytest
-
-    
+            - run: pip install --no-cache-dir -r requirements.txt
+            - run: poetry run black --check .
+            - run: poetry run ruff check . add .
 
